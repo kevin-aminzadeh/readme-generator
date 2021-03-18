@@ -92,8 +92,28 @@ const questions = [
   }),
 ];
 
+// Create an empty object to store user responses in
+let responses = {};
+
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
+
+// Process the question object received as the parameter and handle any follow-up / nested questions that may also exist
+async function renderQuestion(question) {
+  // Prompt User
+  await inquirer.prompt(question.prompt).then(async (res) => {
+    // Push response to data object
+    responses[Object.keys(res)] = res[Object.keys(res)];
+
+    // If the question has followup questions AND the response to the parent prompt evaluates to 'TRUE', repeat the process for each follow-up question by calling the renderQuestion() function again from inside this loop
+
+    if (question.followUpQuestions && res[Object.keys(res)]) {
+      for (const followUpQuestion of question.followUpQuestions) {
+        await renderQuestion(followUpQuestion);
+      }
+    }
+  });
+}
 
 // TODO: Create a function to initialize app
 function init() {
