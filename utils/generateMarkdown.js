@@ -104,9 +104,33 @@ function renderQuestionsToc(username, email) {
   }
 }
 
-// TODO: Return questions section
+// Return questions section
 // If neither GitHub username nor Email address have been provided, return an empty string
-function renderQuestionsSection(username, email) {}
+function renderQuestionsSection(username, email) {
+  if (!username && !email) {
+    return "";
+  } else {
+    let usernameComponent = "";
+    let emailComponent = "";
+
+    if (username) {
+      usernameComponent = `Built by [${username}](https://github.com/${username}).\n`;
+    }
+
+    if (email) {
+      emailComponent = `For questions and enquiries about this project, email me at [${email}](mailto:${email}).\n`;
+    }
+
+    const questionsSection = `
+## Questions
+${usernameComponent}
+${emailComponent}
+
+    `;
+
+    return questionsSection;
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {}
