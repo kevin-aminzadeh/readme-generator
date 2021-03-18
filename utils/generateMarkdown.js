@@ -132,7 +132,52 @@ ${emailComponent}
   }
 }
 
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {}
+// Create a function to generate markdown for README
+function generateMarkdown(data) {
+  const markdownTemplate = `
+# ${data.title}  ${renderLicenseBadge(data.license)}
+
+${renderScreenshot(data.screenshotUrl, data.title)}
+${renderLiveDemoLink(data.liveDemoUrl)}
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Installation Instructions](#installation-instructions)
+- [Usage Information](#usage-information)
+- [Contribution Guidelines](#contribution-guidelines)
+- [Test Instructions](#test-instructions)
+${renderQuestionsToc(data.githubUsername, data.email)}
+${renderLicenseToc(data.license)}
+
+
+## Overview
+
+${data.overview}
+
+## Installation Instructions
+
+${data.installation}
+
+## Usage Information
+
+${data.usage}
+
+## Contribution Guidelines
+
+${data.contribution}
+
+## Test Instructions
+
+${data.tests}
+
+${renderQuestionsSection(data.githubUsername, data.email)}
+
+${renderLicenseSection(data.license)}
+
+    `;
+
+  return markdownTemplate;
+}
 
 module.exports = generateMarkdown;
