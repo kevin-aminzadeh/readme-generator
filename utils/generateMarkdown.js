@@ -76,9 +76,23 @@ function renderLicenseToc(license) {
   }
 }
 
-// TODO: Create a function that returns the license section of README
+// Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license) {
+    const licenseSection = `
+## License
+
+This project is licensed under the terms of the [${license}](${renderLicenseLink(
+      license
+    )}).
+    `;
+
+    return licenseSection;
+  } else {
+    return "";
+  }
+}
 
 // TODO: Return questions TOC entry
 // If neither GitHub username nor Email address have been provided, return an empty string
