@@ -12,9 +12,17 @@ function renderScreenshot(screenshotUrl, projectTitle) {
   }
 }
 
-// TODO: Return README live demo link
+// Return README live demo link
 // If there is no demo link URL, return an empty string
-function renderLiveDemoLink(liveDemoUrl) {}
+function renderLiveDemoLink(liveDemoUrl) {
+  if (liveDemoUrl) {
+    return `
+> <h2 align="center"><a  href="${liveDemoUrl}">Live Demo</a></h2>
+    `;
+  } else {
+    return "";
+  }
+}
 
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
