@@ -66,9 +66,15 @@ function renderLicenseLink(license) {
   }
 }
 
-// TODO: Return license TOC entry
+// Return license TOC entry
 // If there is no license, return an empty string
-function renderLicenseToc(license) {}
+function renderLicenseToc(license) {
+  if (license) {
+    return "- [License](#license)";
+  } else {
+    return "";
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
