@@ -1,4 +1,4 @@
-// TODO: Include packages needed for this application
+// Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
 
@@ -95,8 +95,15 @@ const questions = [
 // Create an empty object to store user responses in
 let responses = {};
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// Create a function to write README file
+function writeToFile(fileName, data) {
+  console.log("writeFile() invoked");
+
+  console.log("Generating README...");
+  fs.writeFile(`${fileName}.md`, `${data}\n`, (err) =>
+    err ? console.log(err) : console.log("README generated Successfully!")
+  );
+}
 
 // Process the question object received as the parameter and handle any follow-up / nested questions that may also exist
 async function renderQuestion(question) {
