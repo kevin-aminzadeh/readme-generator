@@ -45,27 +45,27 @@ const questions = [
     ]
   ),
   new Question({
-    type: "editor",
+    type: "input",
     message: "Enter the project Overview:",
     name: "overview",
   }),
   new Question({
-    type: "editor",
+    type: "input",
     message: "Enter the project's Installation Instructions:",
     name: "installation",
   }),
   new Question({
-    type: "editor",
+    type: "input",
     message: "Usage Information:",
     name: "usage",
   }),
   new Question({
-    type: "editor",
+    type: "input",
     message: "Enter the project's Contribution Guidelines:",
     name: "contribution",
   }),
   new Question({
-    type: "editor",
+    type: "input",
     message: "Enter the project's Test Instructions:",
     name: "tests",
   }),
@@ -129,6 +129,8 @@ async function init() {
     // Pass each question object to the renderQuestion function
     await renderQuestion(question);
   }
+
+  console.log(responses);
   // // Generate markdown and write to file
   writeToFile("README", markdownGen.generateMarkdown(responses));
 }
