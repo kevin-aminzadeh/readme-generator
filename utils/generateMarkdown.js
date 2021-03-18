@@ -1,6 +1,16 @@
-// TODO: Return README screenshot section
+// Return README screenshot section
 // If there is no screenshot URL, return an empty string
-function renderScreenshot(screenshotUrl, projectTitle) {}
+function renderScreenshot(screenshotUrl, projectTitle) {
+  if (screenshotUrl) {
+    return `
+<p align="center">
+  <img src="${screenshotUrl}" alt="${projectTitle} demo screenshot">
+</p>
+    `;
+  } else {
+    return "";
+  }
+}
 
 // TODO: Return README live demo link
 // If there is no demo link URL, return an empty string
