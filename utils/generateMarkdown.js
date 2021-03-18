@@ -180,4 +180,4 @@ ${renderLicenseSection(data.license)}
   return markdownTemplate;
 }
 
-module.exports = generateMarkdown;
+module.exports = { generateMarkdown };
