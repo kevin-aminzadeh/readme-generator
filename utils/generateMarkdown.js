@@ -94,9 +94,15 @@ This project is licensed under the terms of the [${license}](${renderLicenseLink
   }
 }
 
-// TODO: Return questions TOC entry
+// Return questions TOC entry
 // If neither GitHub username nor Email address have been provided, return an empty string
-function renderQuestionsToc(username, email) {}
+function renderQuestionsToc(username, email) {
+  if (!username && !email) {
+    return "";
+  } else {
+    return "- [Questions](#questions)";
+  }
+}
 
 // TODO: Return questions section
 // If neither GitHub username nor Email address have been provided, return an empty string
