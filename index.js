@@ -2,16 +2,94 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 
-// TODO: Create an array of questions for user input
+// Include markdown generator module
+const markdownGen = require("./utils/generateMarkdown");
+
+// Question Class Definition
+class Question {
+  constructor(prompt, followUpQuestions) {
+    this.prompt = prompt;
+    this.followUpQuestions = followUpQuestions;
+  }
+}
+
+// Create an array of questions for user input
 const questions = [
-  { name: "title", question: "Project Title:", answer: "" },
-  { name: "description", question: "Description:", answer: "" },
-  {
-    name: "installation-instructions",
-    question: "Installation Instructions:",
-    answer: "",
-  },
-  { name: "usage-instructions", question: "Usage Instructions:", answer: "" },
+  new Question({ type: "input", message: "Project Title:", name: "title" }),
+  new Question(
+    {
+      type: "confirm",
+      message: "Would you like to include a screenshot? (Recommended)",
+      name: "screenshotPrompt",
+    },
+    [
+      new Question({
+        type: "input",
+        message: "Enter the screenshot URL:",
+        name: "screenshotUrl",
+      }),
+    ]
+  ),
+  new Question(
+    {
+      type: "confirm",
+      message: "Would you like to include a live demo link? (Recommended)",
+      name: "demoLinkPrompt",
+    },
+    [
+      new Question({
+        type: "input",
+        message: "Enter the live demo URL:",
+        name: "liveDemoUrl",
+      }),
+    ]
+  ),
+  new Question({
+    type: "editor",
+    message: "Enter the project Overview:",
+    name: "overview",
+  }),
+  new Question({
+    type: "editor",
+    message: "Enter the project's Installation Instructions:",
+    name: "installation",
+  }),
+  new Question({
+    type: "editor",
+    message: "Usage Information:",
+    name: "usage",
+  }),
+  new Question({
+    type: "editor",
+    message: "Enter the project's Contribution Guidelines:",
+    name: "contribution",
+  }),
+  new Question({
+    type: "editor",
+    message: "Enter the project's Test Instructions:",
+    name: "tests",
+  }),
+  new Question({
+    type: "list",
+    message: "Choose a license for your project:",
+    name: "license",
+    choices: [
+      "MIT License",
+      "Apache License 2.0",
+      "GNU General Public License v3.0",
+      'BSD 3-Clause "New" or "Revised" License',
+    ],
+  }),
+  new Question({
+    type: "input",
+    message: "Enter your GitHub Username:",
+    name: "githubUsername",
+  }),
+  new Question({
+    type: "input",
+    message: "Enter your email address:",
+    name: "email",
+  }),
 ];
 
 // TODO: Create a function to write README file
