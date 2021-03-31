@@ -1,4 +1,4 @@
-# My Awesome Web Application [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+# Professional README Generator ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 <p align="center">
   <img src="./assets/img/demo.gif" alt="My Awesome Web Application demo screenshot">
@@ -95,11 +95,29 @@ First you must install [Node.js](https://nodejs.org/en/) and [NPM](https://www.n
 
 ## Approach
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend fringilla lectus non dignissim. Aliquam gravida gravida accumsan. In aliquet id nibh sed condimentum. Aenean ultricies sem eget pretium bibendum. Mauris sit amet consectetur massa. Nulla cursus vulputate massa, id suscipit orci varius vel. Sed semper at arcu ac facilisis. Nunc enim diam, rutrum quis dolor non, gravida convallis diam. Duis rutrum ex id ante scelerisque, vitae tincidunt risus placerat. Duis placerat sem ut ante consequat bibendum. Morbi luctus nibh id risus lobortis, at ultricies nunc pulvinar. Fusce sed iaculis odio.
+During the application's design phase, it quickly become apparent that a method of presenting the user with follow-up prompts based on previous answers would need to be implemented to allow for the desired set of functionalities, as well as future expandability.
+
+To address this requirement, the `Question` class was modeled to include a `followUpQuestions` property which would store an array of `Question` objects for any question that has follow-ups.
+
+The application's various questions (and their nested follow-ups) are then stored in an array which is iterated over at runtime.
+
+In the context of the application's required functionality, follow-up prompts only need to be presented if the answer to the parent question was yes ( which holds the value `true` ).
+
+As such, after presenting a `Question`'s prompt, the application checks if the object contains follow-up `Question`s and if the user's response to the previous prompt evaluated to true. If **both** these conditions are met, the application then calls the same `renderQuestion()` method on the child `Question`.
+
+This approach allows for much greater flexibility in dynamically responding to user input as questions can be nested many levels deep.
 
 ## Future Improvements
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eleifend fringilla lectus non dignissim. Aliquam gravida gravida accumsan. In aliquet id nibh sed condimentum. Aenean ultricies sem eget pretium bibendum. Mauris sit amet consectetur massa. Nulla cursus vulputate massa, id suscipit orci varius vel. Sed semper at arcu ac facilisis. Nunc enim diam, rutrum quis dolor non, gravida convallis diam. Duis rutrum ex id ante scelerisque, vitae tincidunt risus placerat. Duis placerat sem ut ante consequat bibendum. Morbi luctus nibh id risus lobortis, at ultricies nunc pulvinar. Fusce sed iaculis odio.
+Due to the relative simplicity of this project, there are plenty of available avenues for improvement.
+
+Some noteworthy improvements which could be made include:
+
+- Implementing input an input validation mechanism
+- Providing a more text editor-esque input for sections where a large text input is expected. This would also allow the user to include paragraph formatting naturally.**\***
+- Implementing customizable persistent templates to allow users to create their own desired README sections and maintain a range of preferred templates.
+
+**\*** The implementation of a more natural "_text editor-esque_" input prompt for larger sections was attempted using Inquirer's `{type: 'editor'}` inputs. However, this input type presented strange, inconsistent and unexpected behaviors, and as such was decided against in the end.
 
 ## License
 
