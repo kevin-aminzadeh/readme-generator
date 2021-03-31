@@ -97,8 +97,6 @@ let responses = {};
 
 // Create a function to write README file
 function writeToFile(fileName, data) {
-  console.log("writeFile() invoked");
-
   console.log("Generating README...");
   fs.writeFile(`${fileName}.md`, `${data}\n`, (err) =>
     err ? console.log(err) : console.log("README generated Successfully!")
@@ -130,7 +128,6 @@ async function init() {
     await renderQuestion(question);
   }
 
-  console.log(responses);
   // // Generate markdown and write to file
   writeToFile("README", markdownGen.generateMarkdown(responses));
 }
