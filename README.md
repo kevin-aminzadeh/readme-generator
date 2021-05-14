@@ -1,7 +1,7 @@
 # Professional README Generator ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 <p align="center">
-  <img src="./assets/img/demo.gif" alt="My Awesome Web Application demo screenshot">
+  <img src="./assets/img/demo.gif" alt="Professional Readme Generator">
 </p>
 <p align="center">
 
