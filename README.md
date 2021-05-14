@@ -7,7 +7,7 @@
 
   <p align="center">
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">Watch Demo Video</a>
+    <a href="#">Watch Demo Video</a>
   </p>
 </p>
 
