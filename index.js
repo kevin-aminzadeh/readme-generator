@@ -98,7 +98,7 @@ let responses = {};
 // Create a function to write README file
 function writeToFile(fileName, data) {
   console.log("Generating README...");
-  fs.writeFile(`${fileName}.md`, `${data}\n`, (err) =>
+  fs.writeFile(`./output/${fileName}.md`, `${data}\n`, (err) =>
     err ? console.log(err) : console.log("README generated Successfully!")
   );
 }
