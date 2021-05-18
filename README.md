@@ -1,13 +1,13 @@
 # Professional README Generator ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 <p align="center">
-  <img src="./assets/img/demo.gif" alt="Professional Readme Generator">
+  <img src="./assets/img/demo.gif" alt="Professional Readme Generator Demo">
 </p>
 <p align="center">
 
   <p align="center">
     <br />
-    <a href="#">Watch Demo Video</a>
+    <a href="https://youtu.be/Ex3pvnCoQTE">Watch Demo Video</a>
   </p>
 </p>
 
